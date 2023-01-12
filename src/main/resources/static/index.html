@@ -12,6 +12,93 @@ and open the template in the editor.
     </head>
     <body>
         <div>Data Penduduk Yogyakarta</div>
-         
+          <hr>
+          <script>
+           const url = "http://localhost:8080/POST";
+           function post(){
+            let newId = document.getElementById("myid").value;
+            let name = document.getElementById("Nama").value;
+            let nik = document.getElementById("NIK").value;
+            let add = document.getElementById("Address").value;
+            let dataText = {"Id":newId,"Nama":name,"NIK":nik,"Address":add};
+            let dataJson = JSON.stringify(dataText);
+            $.ajax({
+             url: url,
+             method: 'POST',
+             data: dataJson,
+             contentType: 'application/json',
+             dataType: 'text',
+             success: function(result){
+              console.log(result);
+             }
+            });
+           }
+           
+           function get(){
+             const urlg = "http://localhost:8080/GET";
+             $.ajax({
+              url: urlg,
+              method: 'GET',
+              dataType: 'text',
+              success: function(result){
+               document.getElementById("viewer").innerHTML = result;
+              }
+             });
+            }
+   
+            function put(){
+             const urlp = "http://localhost:8080/PUT";
+             let editId = document.getElementById("myid").value;
+             let name = document.getElementById("Nama").value;
+             let nik = document.getElementById("NIK").value;
+             let add = document.getElementById("Address").value;
+             let dataText = {"Id":editId,"Nama":name,"NIK":nik,"Address":add};
+             let dataJson = JSON.stringify(dataText);
+             $.ajax({
+              url: urlp,
+              method: 'PUT',
+              data: dataJson,
+              contentType: 'application/json',
+              dataType: 'text',
+              success: function(result){
+               document.getElementById("viewer").innerHTML = result;
+
+              }
+             });
+            }
+   
+            function delNIM(){
+             const urlg = "http://localhost:8080/DELETE";
+             let editId = document.getElementById("myid").value;
+             let name = document.getElementById("Nama").value;
+             let nik = document.getElementById("NIK").value;
+             let add = document.getElementById("Address").value;
+             let dataText = {"Id":editId,"Nama":name,"NIK":nik,"Address":add};
+             let dataJson = JSON.stringify(dataText);
+             $.ajax({
+              url: urlg,
+              method: 'DELETE',
+              data: dataJson,
+              contentType: 'application/json',
+              dataType: 'text',
+              success: function(result){
+               document.getElementById("viewer").innerHTML = result;
+              }
+             });
+            }
+   
+  </script>
+  <input type="text" id="myid" name="myid">
+  <input type="text" id="Nama" name="Nama">
+  <input type="text" id="NIK" name="NIK">
+  <input type="text" id="Address" name="Address">
+  <input type="file" id="picture" name="picture">
+  <hr>
+  <button onclick="get()">Get The Data from Web Server</button><br>
+  <button onclick="post()">Send The Data to Web Server</button><br>
+  <button onclick="put()">Edit The Data of Web Server</button><br>
+  <button onclick="delNIM()">Delete The Data of Web Server</button>
+  <hr>
+  <div id="viewer"></div>
     </body>
 </html>
