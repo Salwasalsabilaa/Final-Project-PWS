@@ -9,7 +9,9 @@ and open the template in the editor.
         <title>Final Project UAS</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
+    
     <body>
         <div>Data Penduduk Yogyakarta</div>
           <hr>
@@ -87,18 +89,18 @@ and open the template in the editor.
              });
             }
    
-  </script>
-  <input type="text" id="myid" name="myid">
-  <input type="text" id="Nama" name="Nama">
-  <input type="text" id="NIK" name="NIK">
-  <input type="text" id="Address" name="Address">
-  <input type="file" id="picture" name="picture">
-  <hr>
-  <button onclick="get()">Get The Data from Web Server</button><br>
-  <button onclick="post()">Send The Data to Web Server</button><br>
-  <button onclick="put()">Edit The Data of Web Server</button><br>
-  <button onclick="delNIM()">Delete The Data of Web Server</button>
-  <hr>
-  <div id="viewer"></div>
-    </body>
+            </script>
+            <input type="text" id="myid" name="myid" placeholder="Input Id Penduduk" autofocus><p>
+            <input type="text" id="Nama" name="Nama" placeholder="Input Nama Penduduk" autofocus><p>
+            <input type="text" id="NIK" name="NIK" placeholder="Input NIK Penduduk" autofocus><p>
+            <input type="text" id="Address" name="Address" placeholder="Input Alamat Penduduk" autofocus><p>
+            <input type="file" id="picture" name="picture">
+            <hr>
+            <button onclick="get()">Get The Data from Web Server</button><p>
+            <button onclick="post()">Send The Data to Web Server</button><p>
+            <button onclick="put()">Edit The Data of Web Server</button><p>
+            <button onclick="delNIM()">Delete The Data of Web Server</button>
+            <hr>
+            <div id="viewer"></div>
+              </body>
 </html>
