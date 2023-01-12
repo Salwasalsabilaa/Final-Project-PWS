@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
  PendudukJpaController control = new PendudukJpaController();
  
+ //membuat fungsi Post mapping untuk menambahkan data 
  @PostMapping("/POST")
  public String sendData(HttpEntity<String> kiriman) throws Exception{
   Penduduk datas = new Penduduk();
@@ -37,6 +38,7 @@ public class MyController {
   return d;
  }
  
+ //membuat fungsi Put Mapping untuk mengedit data yang telah ditambahkan
  @PutMapping("/PUT")
  public String editData(HttpEntity<String> kiriman) throws Exception{
   Penduduk datas = new Penduduk();
@@ -48,6 +50,7 @@ public class MyController {
   return d;
  }
  
+ //membuat fungsi Delete Mapping untuk menghapus data yang telah ditambahkan
  @DeleteMapping("/DELETE")
  public String deleteData(HttpEntity<String> kiriman) throws Exception{
   Penduduk datas = new Penduduk();
@@ -59,6 +62,7 @@ public class MyController {
   return "id: "+datas.getId()+" deleted";
  }
  
+ //Membuat fungsi Get Mapping untuk menampilkan hasil dari data yang telah ditambahkan
  @GetMapping("/GET")
  public List<Penduduk> getTabel(){
   List<Penduduk> list = new ArrayList<>();
